@@ -6,4 +6,4 @@ mutagen
 pymicro_vad
 pyspeex_noise
 PyTurboJPEG
-haffmpeg
+ha-ffmpeg
