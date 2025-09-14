@@ -8,5 +8,6 @@
   "documentation": "https://github.com/jonasbkarlsson/home_mind/",
   "iot_class": "cloud_polling",
   "issue_tracker": "https://github.com/jonasbkarlsson/home_mind/issues",
+  "requirements": ["openai==1.99.5"],
   "version": "0.1.0"
 }
