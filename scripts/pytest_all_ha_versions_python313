@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+
+# https://github.com/home-assistant/core
+# https://github.com/MatthewFlamm/pytest-homeassistant-custom-component
+
+run_first_test() {
+  local asynciomode="$1"  # First parameter, "strict" or "auto"
+  echo
+  pip3 list 2>/dev/null | grep homeassistant | grep -v "\-home"
+  pip3 list 2>/dev/null | grep pytest-homeassistant-custom-component
+  output=$(pytest -q --no-summary --asyncio-mode=$asynciomode tests 2>&1 | grep passed)
+  echo "$output"
+  number1=$(echo "$output" | awk '{print $1}')
+  if [ -z "$number1" ]; then
+    echo "No passed test cases!"
+    exit 1
+  fi
+}
+
+run_next_test() {
+  local asynciomode="$1"  # First parameter, "strict" or "auto"
+  echo
+  pip3 list 2>/dev/null | grep homeassistant | grep -v "\-home"
+  pip3 list 2>/dev/null | grep pytest-homeassistant-custom-component
+  output=$(pytest -q --no-summary --asyncio-mode=$asynciomode tests 2>&1 | grep passed)
+  echo "$output"
+  number2=$(echo "$output" | awk '{print $1}')
+  if [ "$number1" != "$number2" ]; then
+    echo "Results are different!"
+    exit 1
+  fi
+}
+
+# As of HA 2024.12, Python 3.13 is supported.
+pip3 install -qq homeassistant==2024.12.1 pytest-homeassistant-custom-component==0.13.191
+run_first_test "auto"
+
+pip3 install -qq homeassistant==2024.12.5 pytest-homeassistant-custom-component==0.13.195
+run_next_test "auto"
+
+pip3 install -qq homeassistant==2025.1.4 pytest-homeassistant-custom-component==0.13.205
+run_next_test "auto"
+
+pip3 install -qq homeassistant==2025.2.5 pytest-homeassistant-custom-component==0.13.215
+run_next_test "auto"
+
+pip3 install -qq homeassistant==2025.3.4 pytest-homeassistant-custom-component==0.13.225
+run_next_test "auto"
+
+pip3 install -qq homeassistant==2025.4.4 pytest-homeassistant-custom-component==0.13.236
+run_next_test "auto"
+
+pip3 install -qq homeassistant==2025.5.3 pytest-homeassistant-custom-component==0.13.246
+run_next_test "auto"
+
+pip3 install -qq homeassistant==2025.6.3 pytest-homeassistant-custom-component==0.13.254
+run_next_test "auto"
+
+pip3 install -qq homeassistant==2025.7.4 pytest-homeassistant-custom-component==0.13.264
+run_next_test "auto"
+
+pip3 install -qq homeassistant==2025.8.3 pytest-homeassistant-custom-component==0.13.272
+run_next_test "auto"
+
+pip3 install -qq homeassistant==2025.9.1 pytest-homeassistant-custom-component==0.13.278
+run_next_test "auto"

@@ -1,0 +1,16 @@
+{
+    "python.defaultInterpreterPath": "/usr/local/bin/python",
+    "files.associations": {
+        "*.yaml": "home-assistant"
+    },
+    "python.testing.cwd": "/workspaces/home_mind/tests",
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "python.analysis.extraPaths": [
+        "/home/vscode/.local/lib/python3.13/site-packages/homeassistant",
+        "/home/vscode/.local/lib/python3.13/site-packages/"
+    ]
+}

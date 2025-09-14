@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+set -e
+
+sudo chown -R vscode:vscode /workspaces
+
+cd "$(dirname "$0")/.."
+
+python3 -m pip install --requirement requirements_dev.txt
+python3 -m pip install --requirement requirements_test.txt
+
+
+sudo apt-get update
+# For Python 3.11
+#sudo apt-get install -y ffmpeg libpcap0.8
+# For Python 3.12
+sudo apt-get install -y ffmpeg libturbojpeg0-dev libpcap0.8
+
+python3 -m pip install hassil home_assistant_intents mutagen pymicro_vad pyspeex_noise PyTurboJPEG
+python3 -m pip install openai==1.99.5
+
+# Add alias
+echo alias ll=\"ls -laF\" >> /home/vscode/.bashrc

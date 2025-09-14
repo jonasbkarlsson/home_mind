@@ -1,0 +1,14 @@
+# Artifacts
+__pycache__
+.coverage
+
+# Misc
+issues
+.DS_Store
+temp
+
+# Home Assistant configuration
+config/*
+!config/configuration.yaml
+custom_components/*
+!custom_components/home_mind

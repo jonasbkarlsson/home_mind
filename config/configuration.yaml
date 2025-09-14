@@ -1,0 +1,22 @@
+#default_config:
+sun:
+config:
+history:
+mobile_app:
+
+http:
+  server_host: 0.0.0.0
+
+# automation: !include automations.yaml
+
+logger:
+#  default: info
+  default: warning
+  logs:
+    custom_components.home_mind: warning
+    custom_components.home_mind.home_mind: debug
+
+
+ffmpeg:
+  ffmpeg_bin: /usr/bin/ffmpeg
+
