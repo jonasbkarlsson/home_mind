@@ -1,5 +1,5 @@
 pytest-homeassistant-custom-component==0.13.278
-openai==1.99.5
+openai==1.108.2
 hassil
 home_assistant_intents
 mutagen
