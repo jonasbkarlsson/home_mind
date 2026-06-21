@@ -17,7 +17,7 @@ sudo apt-get update
 sudo apt-get install -y ffmpeg libturbojpeg0-dev libpcap0.8
 
 python3 -m pip install hassil home_assistant_intents mutagen pymicro_vad pyspeex_noise PyTurboJPEG
-python3 -m pip install openai==1.99.5
+python3 -m pip install openai==2.21.0
 
 # Add alias
 echo alias ll=\"ls -laF\" >> /home/vscode/.bashrc
