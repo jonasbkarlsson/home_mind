@@ -1,5 +1,5 @@
 pytest-homeassistant-custom-component==0.13.278
-pycares==4.11.0
+pycares==5.0.1
 openai==2.21.0
 hassil
 home_assistant_intents
